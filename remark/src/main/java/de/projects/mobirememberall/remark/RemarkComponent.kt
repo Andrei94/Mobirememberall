@@ -7,7 +7,7 @@ import org.jetbrains.anko.*
 class RemarkComponent : AnkoComponent<RemarkActivity> {
 	override fun createView(ui: AnkoContext<RemarkActivity>) = with(ui) {
 		verticalLayout {
-			backgroundColor = context.getColor(R.color.gray)
+			backgroundColor = context.getColor(R.color.blue)
 			editText {
 				textColor = context.getColor(R.color.white)
 				lines = 5
