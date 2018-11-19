@@ -1,7 +1,9 @@
 package de.projects.mobirememberall.remark
 
 import android.view.Gravity
+import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.Toast
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 
@@ -21,7 +23,11 @@ class RemarkComponent : AnkoComponent<RemarkActivity> {
 					textColor = context.getColor(R.color.white)
 					backgroundColor = context.getColor(R.color.green)
 					onClick {
-						RemarkSender.startActionSavePositiveRemark(ctx, remark.text.toString())
+						if(remark.text.isNotBlank()) {
+							RemarkSender.startActionSavePositiveRemark(ctx, remark.text.toString())
+							showSavedFeedback(remark)
+						} else
+							showWarningFeedback()
 					}
 				}.lparams(width = dip(100)) {
 					height = dip(40)
@@ -32,7 +38,11 @@ class RemarkComponent : AnkoComponent<RemarkActivity> {
 					textColor = context.getColor(R.color.white)
 					backgroundColor = context.getColor(R.color.red)
 					onClick {
-						RemarkSender.startActionSaveNegativeRemark(ctx, remark.text.toString())
+						if(remark.text.isNotBlank()) {
+							RemarkSender.startActionSaveNegativeRemark(ctx, remark.text.toString())
+							showSavedFeedback(remark)
+						} else
+							showWarningFeedback()
 					}
 				}.lparams(width = dip(100)) {
 					height = dip(40)
@@ -41,5 +51,13 @@ class RemarkComponent : AnkoComponent<RemarkActivity> {
 				}
 			}
 		}
+	}
+	private fun AnkoContext<RemarkActivity>.showSavedFeedback(remark: EditText) {
+		Toast.makeText(ctx, "Saved!", Toast.LENGTH_SHORT).show()
+		remark.text.clear()
+	}
+
+	private fun AnkoContext<RemarkActivity>.showWarningFeedback() {
+		Toast.makeText(ctx, "No Data!!!!", Toast.LENGTH_LONG).show()
 	}
 }
