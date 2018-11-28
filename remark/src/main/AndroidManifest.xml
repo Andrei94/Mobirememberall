@@ -25,6 +25,9 @@
 		<service
 			android:name=".RemarkSender"
 			android:exported="false" />
+		<service
+			android:name=".RemarksPosterService"
+			android:exported="false"></service>
 	</application>
 
 </manifest>

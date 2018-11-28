@@ -23,7 +23,7 @@ class RemarkComponent : AnkoComponent<RemarkActivity> {
 					textColor = context.getColor(R.color.white)
 					backgroundColor = context.getColor(R.color.green)
 					onClick {
-						if(remark.text.isNotBlank()) {
+						if (remark.text.isNotBlank()) {
 							RemarkSender.startActionSavePositiveRemark(ctx, remark.text.toString())
 							showSavedFeedback(remark)
 						} else
@@ -38,7 +38,7 @@ class RemarkComponent : AnkoComponent<RemarkActivity> {
 					textColor = context.getColor(R.color.white)
 					backgroundColor = context.getColor(R.color.red)
 					onClick {
-						if(remark.text.isNotBlank()) {
+						if (remark.text.isNotBlank()) {
 							RemarkSender.startActionSaveNegativeRemark(ctx, remark.text.toString())
 							showSavedFeedback(remark)
 						} else
@@ -49,9 +49,22 @@ class RemarkComponent : AnkoComponent<RemarkActivity> {
 					topMargin = dip(20)
 					horizontalMargin = dip(20)
 				}
+				button(context.getString(R.string.postRemarks)) {
+					textColor = context.getColor(R.color.white)
+					backgroundColor = context.getColor(R.color.blue)
+					onClick {
+						RemarksPosterService.startActionFoo(ctx)
+						showSyncFeedback()
+					}
+				}.lparams(width = dip(100)) {
+					height = dip(40)
+					topMargin = dip(20)
+					horizontalMargin = dip(20)
+				}
 			}
 		}
 	}
+
 	private fun AnkoContext<RemarkActivity>.showSavedFeedback(remark: EditText) {
 		Toast.makeText(ctx, "Saved!", Toast.LENGTH_SHORT).show()
 		remark.text.clear()
@@ -59,5 +72,9 @@ class RemarkComponent : AnkoComponent<RemarkActivity> {
 
 	private fun AnkoContext<RemarkActivity>.showWarningFeedback() {
 		Toast.makeText(ctx, "No Data!!!!", Toast.LENGTH_LONG).show()
+	}
+
+	private fun AnkoContext<RemarkActivity>.showSyncFeedback() {
+		Toast.makeText(ctx, "Synced!!!!", Toast.LENGTH_LONG).show()
 	}
 }
