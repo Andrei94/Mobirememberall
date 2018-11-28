@@ -10,7 +10,7 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 class RemarkComponent : AnkoComponent<RemarkActivity> {
 	override fun createView(ui: AnkoContext<RemarkActivity>) = with(ui) {
 		verticalLayout {
-			backgroundColor = context.getColor(R.color.blue)
+			backgroundColor = context.getColor(R.color.gray)
 			val remark = editText {
 				textColor = context.getColor(R.color.white)
 				lines = 5
