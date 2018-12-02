@@ -53,7 +53,7 @@ class RemarksPosterService : IntentService("RemarksPosterService") {
 	}
 
 	companion object {
-		fun startActionFoo(context: Context) {
+		fun startPostRemarksAction(context: Context) {
 			val intent = Intent(context, RemarksPosterService::class.java).apply {
 				action = ACTION_POST_REMARKS
 			}

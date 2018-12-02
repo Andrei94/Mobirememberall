@@ -53,7 +53,7 @@ class RemarkComponent : AnkoComponent<RemarkActivity> {
 					textColor = context.getColor(R.color.white)
 					backgroundColor = context.getColor(R.color.blue)
 					onClick {
-						RemarksPosterService.startActionFoo(ctx)
+						RemarksPosterService.startPostRemarksAction(ctx)
 						showSyncFeedback()
 					}
 				}.lparams(width = dip(100)) {
