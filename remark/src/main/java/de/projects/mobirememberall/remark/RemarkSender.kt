@@ -3,6 +3,8 @@ package de.projects.mobirememberall.remark
 import android.app.IntentService
 import android.content.Context
 import android.content.Intent
+import de.projects.mobirememberall.remark.Configuration.negativeFile
+import de.projects.mobirememberall.remark.Configuration.positiveFile
 import java.io.File
 import java.nio.charset.Charset
 
@@ -20,11 +22,11 @@ class RemarkSender : IntentService("RemarkSender") {
 	}
 
 	private fun handleActionSavePositiveRemark(payload: String) {
-		File(baseContext.filesDir, "positive.log").appendText(payload + System.getProperty("line.separator"), Charset.defaultCharset())
+		File(baseContext.filesDir, positiveFile).appendText(payload + System.getProperty("line.separator"), Charset.defaultCharset())
 	}
 
 	private fun handleActionSaveNegativeRemark(payload: String) {
-		File(baseContext.filesDir, "negative.log").appendText(payload + System.getProperty("line.separator"), Charset.defaultCharset())
+		File(baseContext.filesDir, negativeFile).appendText(payload + System.getProperty("line.separator"), Charset.defaultCharset())
 	}
 
 	companion object {

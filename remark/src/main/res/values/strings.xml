@@ -1,4 +1,5 @@
 <resources>
 	<string name="submit">OK</string>
-	<string name="postRemarks">Post Remarks</string>
+	<string name="postRemarks">Post</string>
+	<string name="canChangeServer">Can change server</string>
 </resources>
