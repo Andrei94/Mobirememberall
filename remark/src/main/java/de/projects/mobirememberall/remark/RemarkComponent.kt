@@ -41,7 +41,7 @@ class RemarkComponent : AnkoComponent<RemarkActivity> {
 							showWarningFeedback()
 					}
 				})
-				val remoteServer = editText("ec2-3-83-24-127.compute-1.amazonaws.com") {
+				val remoteServer = editText("ec2-3-84-92-47.compute-1.amazonaws.com") {
 					textColor = context.getColor(R.color.white)
 					lines = 1
 					isEnabled = false
