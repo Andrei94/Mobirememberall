@@ -65,6 +65,7 @@ class RemarksPosterService : IntentService("RemarksPosterService") {
 	private fun createPostRequest(content: String): Request {
 		return Request.Builder()
 				.url("http://$serverName/remarks")
+				.header("Authorization", Credentials.basic("user", "password"))
 				.post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), content)).build()
 	}
 
